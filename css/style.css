@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body { 
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px 40px 20px 40px;
+}
+  
+.section-logo h1 {
+    color: red;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+  
+header .section-search {
+    display: flex;
+    align-items: center;
+}
+  
+.section-search i {
+    padding-right: 10px;
+    color: #fff;
+    font-size: 17px;
+}
+  
+header .section-search input{
+    background-color: #000;
+    color: lightgray;
+    padding: 4px 10px;
+    outline: 0;
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: 12px;
+}
+  

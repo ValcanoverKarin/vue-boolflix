@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolflix</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="root">
+
+        <!--HEADER-->
+        <header>
+            <!--sezione logo-->
+            <div class="section-logo">
+                <h1>boolflix</h1>
+            </div>
+            <!--end sezione logo-->
+
+            <!--sezione ricerca-->
+            <div class="section-search">
+                <!--icona ricerca-->
+                <div class="icon">
+                    <i class="fas fa-search"  @click="searchFilm"></i>
+                </div>
+                <!--end icona ricerca-->
+                <!--barra di ricerca-->
+                <div class="input">
+                    <!--1c. aggiungo il v-model-->
+                    <input type="text" name="searchbar" placeholder="Inserisci ricerca..." v-model="searchInput" @keyup.enter="searchFilm">
+                </div>
+                <!--end barra di ricerca-->
+            </div>
+            <!--end sezione ricerca-->
+        </header>
+        <!--END HEADER-->
+
+        <!--MAIN-->
+        <main>
+            <!--movie-->
+            <!-------1h. aggiungo il v-for per popolare resultMovie e stampo-------->
+            <ul v-for="movie in resultMovie">
+                <li>Titolo: {{ movie.title }}</li>
+                <li>Titolo Originale: {{ movie.original_title }}</li>
+                <li>Lingua: {{ movie.original_language }}</li>
+                <li>Voto:  {{ movie.vote_average }}</li>
+            </ul>
+            <!--end movie-->
+        </main>
+        <!--END MAIN-->
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
