@@ -5,14 +5,27 @@
     box-sizing: border-box;
   }
 
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+img {
+    height: 300px;
+}
+
 /*HEADER*/
 header {
+    height: 62px;
+    width: 100%;
     font-family: 'Heebo';
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #221f1f;
-    padding: 5px 40px 5px 40px;
+    padding: 0px 40px 0px 40px;
+    position: fixed;
+    z-index: 1;
 }
   
 .section-logo h1 {
@@ -30,6 +43,7 @@ header .section-search {
     padding-right: 10px;
     color: white;
     font-size: 17px;
+    cursor: pointer;
 }
   
 header .section-search input {
@@ -42,12 +56,25 @@ header .section-search input {
     font-size: 12px;
 }
 
+.invisible {
+    height: 62px;
+}
+
 /*MAIN*/
+
 main {
     background-color: #221f1f;
     min-height: calc(100vh - 62px);
 }
-.flag img{
+
+.card {
+    margin: 10px;
+}
+
+.card .flag img{
     width: 30px;
 }
+
   
+
+
