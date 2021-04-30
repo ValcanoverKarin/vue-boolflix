@@ -1,14 +1,18 @@
+/*RESET*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+/*COMMON*/
 body { 
     position: relative;
 }
 
+/*HEADER*/
 header {
+    font-family: 'Heebo';
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,5 +45,10 @@ header .section-search input{
     border: none;
     border-bottom: 1px solid white;
     font-size: 12px;
+}
+
+/*MAIN*/
+.flag img{
+    width: 30px;
 }
   

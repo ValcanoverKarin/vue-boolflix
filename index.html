@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Boolflix</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -32,7 +35,7 @@
                 <!--end icona ricerca-->
                 <!--barra di ricerca-->
                 <div class="input">
-                    <!--1c. aggiungo il v-model-->
+                    <!-------1c. aggiungo il v-model------->
                     <input type="text" name="searchbar" placeholder="Inserisci ricerca..." v-model="searchInput" @keyup.enter="searchFilm">
                 </div>
                 <!--end barra di ricerca-->
@@ -48,7 +51,12 @@
             <ul v-for="movie in resultMovie">
                 <li>Titolo: {{ movie.title }}</li>
                 <li>Titolo Originale: {{ movie.original_title }}</li>
-                <li>Lingua: {{ movie.original_language }}</li>
+                <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
+                <li class="flag">
+                    Lingua:
+                    <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
+                    <div v-else>{{ movie.original_language }}</div>
+                </li>
                 <li>Voto:  {{ movie.vote_average }}</li>
             </ul>
             <!--end movie-->
