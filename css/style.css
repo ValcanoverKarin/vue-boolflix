@@ -5,11 +5,6 @@
     box-sizing: border-box;
   }
 
-/*COMMON*/
-body { 
-    position: relative;
-}
-
 /*HEADER*/
 header {
     font-family: 'Heebo';
@@ -37,7 +32,7 @@ header .section-search {
     font-size: 17px;
 }
   
-header .section-search input{
+header .section-search input {
     background-color: #221f1f;
     color: lightgray;
     padding: 4px 10px;
@@ -48,6 +43,10 @@ header .section-search input{
 }
 
 /*MAIN*/
+main {
+    background-color: #221f1f;
+    min-height: calc(100vh - 62px);
+}
 .flag img{
     width: 30px;
 }
