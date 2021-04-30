@@ -3,22 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-  }
+body {
+    font-family: 'Heebo';
+}
 
 img {
     height: 300px;
 }
 
 /*HEADER*/
-header {
+.container {
     height: 62px;
     width: 100%;
-    font-family: 'Heebo';
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +32,7 @@ header {
     font-size: 35px;
 }
   
-header .section-search {
+.container .section-search {
     display: flex;
     align-items: center;
 }
@@ -46,7 +44,7 @@ header .section-search {
     cursor: pointer;
 }
   
-header .section-search input {
+.container .section-search input {
     background-color: #221f1f;
     color: lightgray;
     padding: 4px 10px;
@@ -63,8 +61,19 @@ header .section-search input {
 /*MAIN*/
 
 main {
+    padding-top: 20px;
     background-color: #221f1f;
     min-height: calc(100vh - 62px);
+    color: white;
+}
+
+h3 {
+    padding-left: 40px;
+}
+
+.card-container {
+    display: flex;
+    padding-left: 30px;
 }
 
 .card {
@@ -72,9 +81,24 @@ main {
 }
 
 .card .flag img{
-    width: 30px;
+    height: 20px;
 }
 
+main ul {
+    list-style-type: none;
+    font-size: 13px;
+}
+
+main ul .titolo {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+
+main .star {
+    display: flex;
+    color: gold;
+}
   
 
 

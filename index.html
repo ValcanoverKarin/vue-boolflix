@@ -7,10 +7,7 @@
     <title>Vue Boolflix</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -23,59 +20,63 @@
 
         <!--HEADER-->
         <header>
-            <!--sezione logo-->
-            <div class="section-logo">
-                <h1>boolflix</h1>
-            </div>
-            <!--end sezione logo-->
+            <div class="container">
+                <!--sezione logo-->
+                <div class="section-logo">
+                    <h1>boolflix</h1>
+                </div>
+                <!--end sezione logo-->
 
-            <!--sezione ricerca-->
-            <div class="section-search">
-                <!--icona ricerca-->
-                <div class="icon">
-                    <i class="fas fa-search"  @click="searchFilm"></i>
-                </div>
-                <!--end icona ricerca-->
-                <!--barra di ricerca-->
-                <div class="input">
-                    <!-------1c. aggiungo il v-model------->
-                    <input type="text" name="searchbar" placeholder="Inserisci ricerca..." v-model="searchInput" @keyup.enter="searchFilm">
-                </div>
+                <!--sezione ricerca-->
+                <div class="section-search">
+                    <!--icona ricerca-->
+                    <div class="icon">
+                        <i class="fas fa-search"  @click="searchFilm"></i>
+                    </div>
+                    <!--end icona ricerca-->
+                    <!--barra di ricerca-->
+                    <div class="input">
+                        <!-------1c. aggiungo il v-model------->
+                        <input type="text" name="searchbar" placeholder="Inserisci ricerca..." v-model="searchInput" @keyup.enter="searchFilm">
+                    </div>
                 <!--end barra di ricerca-->
             </div>
             <!--end sezione ricerca-->
+            </div>
+            <div class="invisible"></div>
         </header>
         <!--END HEADER-->
-
-        <div class="invisible"></div>
 
         <!--MAIN-->
         <main>
             <!--film section-->
-            <h2>FILM</h2>
-            <div class="card-container flex-row">
+            <h3>FILM</h3>
+            <div class="card-container">
                 <!-------1h. aggiungo il v-for per popolare resultMovie e stampo-------->
                 <div class="card" v-for="movie in resultMovie">
                     <div class="poster">
                         <!-------3a. aggiungo la copertina dei film-------->
                         <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
-                   
 
-                        <div class="titolo">Titolo: {{ movie.title }}</div>
-                        <div class="titolo-originale">Titolo originale: {{ movie.original_title }}</div>
-                        <div class="flag">
-                            <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
-                            Lingua:
-                            <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
-                            <div v-else>{{ movie.original_language }}</div>
-                        </div>
-                        <div class="voto">Voto: {{ movie.vote_average }} /10</div>
-                        <!-------3c. aggiungo il v-for per le stelle "piene" in base al voto-------->
-                        <!-------3d. aggiungo il v-for per le stelle totali a cui sotrarre quelle piene in base al voto-------->
-                        <div class="star">
-                            <i v-for="star in starsVote(movie.vote_average)" class="fas fa-star"></i> 
-                            <i v-for="star in (5 - starsVote(movie.vote_average))" class="far fa-star"></i>
-                        </div>
+                        <ul>
+                            <li>
+                                <div class="titolo">{{ movie.title }}</div>
+                                <div class="titolo-originale">Titolo originale: {{ movie.original_title }}</div>
+                                <div class="flag">
+                                    <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
+                                    Lingua:
+                                    <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
+                                    <div v-else>{{ movie.original_language }}</div>
+                                </div>
+                                <div class="voto">Voto: {{ movie.vote_average }} /10</div>
+                                <!-------3c. aggiungo il v-for per le stelle "piene" in base al voto-------->
+                                <!-------3d. aggiungo il v-for per le stelle totali a cui sotrarre quelle piene in base al voto-------->
+                                <div class="star">
+                                    <i v-for="star in starsVote(movie.vote_average)" class="fas fa-star"></i> 
+                                    <i v-for="star in (5 - starsVote(movie.vote_average))" class="far fa-star"></i>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -83,15 +84,15 @@
 
 
             <!--serie section-->
-            <h2>SERIE</h2>
-            <div class="card-container flex-row">
+            <h3>SERIE</h3>
+            <div class="card-container">
                 <!-------2e. aggiungo la parte dedicata alle serie-------->
                 <div class="card" v-for="serie in resultSerie">
                     <!-------3a. aggiungo la copertina delle serie-------->
                     <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
                    
 
-                    <div class="titolo">Titolo: {{ serie.name}}</div>
+                    <div class="titolo">{{ serie.name}}</div>
                     <div class="titolo-originale">Titolo originale: {{ serie.original_name }}</div>
                     <div class="flag">
                         Lingua:
