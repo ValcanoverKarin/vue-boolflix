@@ -6,10 +6,11 @@ var app = new Vue (
             api_key: '7256d088cd76b30a936046b2d338fc9d',
             //1b. aggiungo seachInput per la ricerca dell' utente nella imput
             searchInput: '',
-            //1g. creao l'array che viene popolato dalla chiamata all'API
+            //1g. creao l'array per i film che viene popolato dalla chiamata all'API
             resultMovie: [],
-
+            //2d. creao l'array per le serie che viene popolato dalla chiamata all'API
             resultSerie: [],
+
             //2a. creo l'array di link delle bandiere
             flagsImages: {
                 en: 'https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg',
@@ -17,6 +18,7 @@ var app = new Vue (
                 fr: 'https://lipis.github.io/flag-icon-css/flags/4x3/fr.svg',  
                 de: 'https://lipis.github.io/flag-icon-css/flags/4x3/de.svg',
                 es: 'https://lipis.github.io/flag-icon-css/flags/4x3/es.svg', 
+                ja: 'https://lipis.github.io/flag-icon-css/flags/4x3/jp.svg',
                 da: 'https://lipis.github.io/flag-icon-css/flags/4x3/dk.svg',
                 pl: 'https://lipis.github.io/flag-icon-css/flags/4x3/pl.svg',
                 sv: 'https://lipis.github.io/flag-icon-css/flags/4x3/se.svg',
