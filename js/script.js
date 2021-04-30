@@ -60,8 +60,14 @@ var app = new Vue (
                 .then((response) => {
                     this.resultSerie = response.data.results;
                 });
+            },
+
+            //3b. creo una funzione per approssimare al numero intero piu vicino (da 1 a 5)
+            starsVote: function (vote) {
+                return Math.round(vote / 2)
             }
         },
+
         mounted () {
 
         }

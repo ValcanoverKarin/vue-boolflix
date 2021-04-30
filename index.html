@@ -50,29 +50,45 @@
                 <!--film section-->
                 <!-------1h. aggiungo il v-for per popolare resultMovie e stampo-------->
                 <div class="card" id="film" v-for="movie in resultMovie">
+                    <!-------3a. aggiungo la copertina dei film-------->
+                    <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
                     <div class="titolo">Titolo: {{ movie.title }}</div>
-                    <div class="titolo-originale">{{ movie.original_title }}</div>
+                    <div class="titolo-originale">Titolo originale: {{ movie.original_title }}</div>
                     <div class="flag">
                         <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
                         Lingua:
                         <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
                         <div v-else>{{ movie.original_language }}</div>
                     </div>
-                    <div class="voto">Voto:  {{ movie.vote_average }}</div>
+                    <div class="voto">Voto: {{ movie.vote_average }} /10</div>
+                    <!-------3c. aggiungo il v-for per le stelle "piene" in base al voto-------->
+                    <!-------3d. aggiungo il v-for per le stelle totali a cui sotrarre quelle piene in base al voto-------->
+                    <div class="star">
+                        <i v-for="star in starsVote(movie.vote_average)" class="fas fa-star"></i> 
+                        <i v-for="star in (5 - starsVote(movie.vote_average))" class="far fa-star"></i>
+                    </div>
                 </div>
                 <!--end film section-->
 
                 <!--serie section-->
-                <!-------2d. aggiungo la parte dedicata alle serie-------->
+                <!-------2e. aggiungo la parte dedicata alle serie-------->
                 <div class="card" id="serie" v-for="serie in resultSerie">
+                    <!-------3a. aggiungo la copertina delle serie-------->
+                    <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
                     <div class="titolo">Titolo: {{ serie.name}}</div>
-                    <div class="titolo-originale">{{ serie.original_name }}</div>
+                    <div class="titolo-originale">Titolo originale: {{ serie.original_name }}</div>
                     <div class="flag">
                         Lingua:
                         <img v-if="serie.original_language in flagsImages" :src="flagsImages[serie.original_language]" :alt="serie.original_language">
                         <div v-else>{{ serie.original_language }}</div>
                     </div>
-                    <div class="voto">Voto:  {{ serie.vote_average }}</div>
+                    <div class="voto">Voto:  {{ serie.vote_average }} /10</div>
+                    <!-------3c. aggiungo il v-for per le stelle "piene" in base al voto-------->
+                    <!-------3d. aggiungo il v-for per le stelle totali a cui sotrarre quelle piene in base al voto-------->
+                    <div class="star">
+                        <i v-for="star in starsVote(serie.vote_average)" class="fas fa-star"></i> 
+                        <i v-for="star in (5 - starsVote(serie.vote_average))" class="far fa-star"></i>
+                    </div>
                 </div>
                 <!--end serie section-->
             </div>
