@@ -46,20 +46,36 @@
 
         <!--MAIN-->
         <main>
-            <!--movie-->
-            <!-------1h. aggiungo il v-for per popolare resultMovie e stampo-------->
-            <ul v-for="movie in resultMovie">
-                <li>Titolo: {{ movie.title }}</li>
-                <li>Titolo Originale: {{ movie.original_title }}</li>
-                <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
-                <li class="flag">
-                    Lingua:
-                    <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
-                    <div v-else>{{ movie.original_language }}</div>
-                </li>
-                <li>Voto:  {{ movie.vote_average }}</li>
-            </ul>
-            <!--end movie-->
+            <div class="card-container">
+                <!--film section-->
+                <!-------1h. aggiungo il v-for per popolare resultMovie e stampo-------->
+                <div class="card" id="film" v-for="movie in resultMovie">
+                    <div class="titolo">Titolo: {{ movie.title }}</div>
+                    <div class="titolo-originale">{{ movie.original_title }}</div>
+                    <div class="flag">
+                        <!-------2b. aggiungo il v-if con gli oggetti in flagImages-------->
+                        Lingua:
+                        <img v-if="movie.original_language in flagsImages" :src="flagsImages[movie.original_language]" :alt="movie.original_language">
+                        <div v-else>{{ movie.original_language }}</div>
+                    </div>
+                    <div class="voto">Voto:  {{ movie.vote_average }}</div>
+                </div>
+                <!--end film section-->
+
+                <!--serie section-->
+                <!-------2d. aggiungo la parte dedicata alle serie-------->
+                <div class="card" id="serie" v-for="serie in resultSerie">
+                    <div class="titolo">Titolo: {{ serie.name}}</div>
+                    <div class="titolo-originale">{{ serie.original_name }}</div>
+                    <div class="flag">
+                        Lingua:
+                        <img v-if="serie.original_language in flagsImages" :src="flagsImages[serie.original_language]" :alt="serie.original_language">
+                        <div v-else>{{ serie.original_language }}</div>
+                    </div>
+                    <div class="voto">Voto:  {{ serie.vote_average }}</div>
+                </div>
+                <!--end serie section-->
+            </div>
         </main>
         <!--END MAIN-->
 

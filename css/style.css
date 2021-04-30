@@ -16,8 +16,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    padding: 20px 40px 20px 40px;
+    background-color: #221f1f;
+    padding: 5px 40px 5px 40px;
 }
   
 .section-logo h1 {
@@ -33,12 +33,12 @@ header .section-search {
   
 .section-search i {
     padding-right: 10px;
-    color: #fff;
+    color: white;
     font-size: 17px;
 }
   
 header .section-search input{
-    background-color: #000;
+    background-color: #221f1f;
     color: lightgray;
     padding: 4px 10px;
     outline: 0;

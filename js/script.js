@@ -8,6 +8,8 @@ var app = new Vue (
             searchInput: '',
             //1g. creao l'array che viene popolato dalla chiamata all'API
             resultMovie: [],
+
+            resultSerie: [],
             //2a. creo l'array di link delle bandiere
             flagsImages: {
                 en: 'https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg',
@@ -24,9 +26,12 @@ var app = new Vue (
         },
         methods: {
             //1d. creo la funzione per popolare l'array resultMovie quando l'utente clicca la lente o preme enter
-            searchFilm() {
+            //2c. creao la funzione sia per i film che per le serie 
+            searchFilm: function() {
+
+                ////FILM
                 axios
-                ////1e. aggiungo l' apposita API 
+                //1e. aggiungo l' apposita API 
                 .get("https://api.themoviedb.org/3/search/movie", {
                     params: {
                         api_key: this.api_key,
@@ -36,9 +41,22 @@ var app = new Vue (
                 })
                 //1f. risposta del server
                 .then((response) => {
-                    const result = response.data;
+                    //const result = response.data;
                     //console.log(result);
-                    this.resultMovie = result.results;
+                    this.resultMovie = response.data.results;
+                });
+
+                ////SERIE
+                axios
+                .get("https://api.themoviedb.org/3/search/tv", {
+                    params: {
+                        api_key: this.api_key,
+                        query: this.searchInput,
+                        language: "it-IT"
+                    }
+                })
+                .then((response) => {
+                    this.resultSerie = response.data.results;
                 });
             }
         },
