@@ -84,12 +84,11 @@ h3 {
     height: 20px;
 }
 
-main ul {
-    list-style-type: none;
+.card-back {
     font-size: 13px;
 }
 
-main ul .titolo {
+.card-back .titolo {
     font-size: 20px;
     margin-bottom: 5px;
 }
@@ -99,6 +98,30 @@ main .star {
     display: flex;
     color: gold;
 }
-  
+
+.card{
+    position: relative;
+}
+
+.card:hover .card-back {
+    display: block;
+}
+
+.card-back {
+    padding: 15px;
+    position: absolute;
+    height: 98%;
+    width: 100%;
+    top: 0px;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.card-back:hover{
+    display: block;
+    background: rgba(0, 0, 0, .7);
+    opacity: 1;
+}
+
 
 
