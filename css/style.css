@@ -15,7 +15,7 @@ img {
 
 /*HEADER*/
 .container {
-    height: 62px;
+    height: 68px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -26,10 +26,9 @@ img {
     z-index: 1;
 }
   
-.section-logo h1 {
-    color: red;
-    text-transform: uppercase;
-    font-size: 35px;
+.section-logo img {
+    height: 50px;
+    vertical-align: middle;
 }
   
 .container .section-search {
@@ -55,15 +54,16 @@ img {
 }
 
 .invisible {
-    height: 62px;
+    height: 68px;
 }
 
 /*MAIN*/
 
 main {
     padding-top: 20px;
+    padding-bottom: 20px;
     background-color: #221f1f;
-    min-height: calc(100vh - 62px);
+    min-height: calc(100vh - 68px);
     color: white;
 }
 
@@ -74,18 +74,12 @@ h3 {
 .card-container {
     display: flex;
     padding-left: 30px;
-}
-
-.card {
-    margin: 10px;
+    margin-right: 40px;
+    overflow-x: auto;
 }
 
 .card .flag img{
-    height: 20px;
-}
-
-.card-back {
-    font-size: 13px;
+    height: 15px;
 }
 
 .card-back .titolo {
@@ -101,6 +95,7 @@ main .star {
 
 .card{
     position: relative;
+    margin: 10px;
 }
 
 .card:hover .card-back {
@@ -108,6 +103,7 @@ main .star {
 }
 
 .card-back {
+    font-size: 13px;
     padding: 15px;
     position: absolute;
     height: 98%;
@@ -117,11 +113,14 @@ main .star {
     transition: opacity 0.6s;
 }
 
-.card-back:hover{
+.card-back:hover {
     display: block;
     background: rgba(0, 0, 0, .7);
     opacity: 1;
 }
 
+.titolo-originale, .flag, .voto {
+    margin-bottom: 3px;
+}
 
 
