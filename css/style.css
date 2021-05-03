@@ -98,13 +98,12 @@ main .star {
     margin: 10px;
 }
 
-.card:hover .card-back {
-    display: block;
-}
-
 .card-back {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
     font-size: 13px;
-    padding: 15px;
+    padding: 15px 15px 20px 15px;
     position: absolute;
     height: 98%;
     width: 100%;
@@ -114,13 +113,16 @@ main .star {
 }
 
 .card-back:hover {
-    display: block;
     background: rgba(0, 0, 0, .7);
     opacity: 1;
 }
 
-.titolo-originale, .flag, .voto {
+.titolo-originale, .flag, .voto, .star{
     margin-bottom: 3px;
+}
+
+.card-back .overview {
+    overflow-y: auto;
 }
 
 

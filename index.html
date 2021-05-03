@@ -73,6 +73,7 @@
                             <i v-for="star in starsVote(movie.vote_average)" class="fas fa-star"></i> 
                             <i v-for="star in (5 - starsVote(movie.vote_average))" class="far fa-star"></i>
                         </div>
+                        <div class="overview">{{ movie.overview }}</div>
                     </div>
                     <!--end card back-->
                 </div>
@@ -102,6 +103,7 @@
                             <i v-for="star in starsVote(serie.vote_average)" class="fas fa-star"></i> 
                             <i v-for="star in (5 - starsVote(serie.vote_average))" class="far fa-star"></i>
                         </div>
+                        <div class="overview">{{ serie.overview }}</div>
                     </div>
                     <!--end card back-->  
                 </div>
